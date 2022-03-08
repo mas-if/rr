@@ -1,0 +1,48 @@
+.label {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1rem;
+}
+
+.checkbox {
+  -webkit-appearance: none; /* hide the default checkmark */
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff; /* checkbox default background */
+  border: 1px solid #ccc;
+  padding: 0.5rem; /* defines the size of the checkbox */
+  margin-right: 0.5rem;  /* some breathing space */
+}
+
+.checkbox:after { /* our custom checkmark */
+  content: "";
+  display: none;
+  position: absolute;
+  left: 6px; /* checkmark positioning */
+  top: 10px; /* checkmark positioning */
+  width: 4px; /* checkmark size */
+  height: 10px; /* checkmark size */
+  border: solid white; /* checkmark color */
+  border-width: 0 1px 1px 0; /* checkmark stroke width */
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox:focus {
+  outline: none; /* removing the focus outline is not advisable */
+  /* but if you need to set custom focused state, your code goes here */
+}
+
+.checkbox:hover {
+  border-color: darkcyan; /* checkbox hover background */
+}
+
+.checkbox:checked:after {
+  display: block;
+}
+
+.checkbox:checked {
+  background-color: darkcyan; /* checked state colors */
+  border-color: darkcyan;
+}
