@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+.checkbox-contianer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between 10px;
+  width: 121px;
+  height: 1;
+  place-items: 10px;
+}
+.checkbox {
+  position: absolute; // take it out of document flow
+  opacity: 0; // hide it
+
+  & + b {
+    position: relative;
+    + span {
+      padding-left: 10px;
+      width: 95;
+      height: 19;
+    }
+  }
+  // Box.
+
+  & + b:before {
+    content: "";
+    display: inline-block;
+    vertical-align: text-top;
+    border: 2px solid #000000;
+    border-radius: 2px;
+    width: 16px;
+    height: 16px;
+    // background: white;
+  }
+
+  // Box hover
+  &:hover + b:before {
+    border-color: #407ea3;
+  }
+
+  // // Box focus
+  // &:focus + b:before {
+  //   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  // }
+
+  // Box checked
+  &:checked + b:before {
+    background: #407ea3;
+    border-color: #407ea3;
+  }
+
+  // Disabled state b.
+  &:disabled + b {
+    color: #b8b8b8;
+    border-color: #b6b6b6;
+    cursor: not-allowed;
+    + span {
+      color: #b6b6b6;
+      cursor: not-allowed;
+    }
+  }
+
+  // Disabled box.
+  &:disabled + b:before {
+    box-shadow: none;
+    background: #ddd;
+    border-color: #b6b6b6;
+  }
+
+  // Checkmark. Could be replaced with an image
+  &:checked + b:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 1px 0 0 white, 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white,
+      4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white, 4px -10px 0 white;
+    transform: rotate(45deg);
+  }
+
+  &:disabled + b {
+    background: #0000;
+  }
+}
